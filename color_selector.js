@@ -8,7 +8,6 @@ function init(){
     //conversion();
     showHex();
     //HTML.hex = document.querySelector(".hexCode");
-
 }
 
 function conversion(){
@@ -54,16 +53,14 @@ console.log("hsl(%f,%f%,%f%)", h, s, l); // just for testing
 
 function showHex(){
 
-    let hex = document.querySelector('input[type=color]').value;
-    console.log(hex)
     let hexElement = document.querySelector(".getColor");
-    let hexCode = document.querySelector(".getColor").textContent;
-    //document.querySelector(".getColor").addEventListener("input", hex);
-    hexElement.oninput = function() {
-        console.log(document.querySelector('input[type=color]').value)
-        console.log(hexCode)
+    console.log(hexElement)
+    hexElement.oninput = function() { 
+    //console.log(hexCode)
+    console.log(document.querySelector('input[type=color]').value);
     
-
-
-
+    let hexValue = document.querySelector('input[type=color]').value;
+    document.querySelector(".hexCode").textContent = `HEX code: ${hexValue}`
+    }
 }
+
