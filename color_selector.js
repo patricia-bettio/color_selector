@@ -10,7 +10,7 @@ function init(){
   showRgb();
 }
 
-function conversion(){
+function conversion(r, g, b){
 
 r /= 255;
 g /= 255;
