@@ -5,9 +5,9 @@ window.addEventListener("DOMContentLoaded", init);
 let HTML = {}
 
 function init(){
-    //conversion();
-    showHex();
-    //HTML.hex = document.querySelector(".hexCode");
+  HTML.hexElement = document.querySelector(".getColor");
+  showHex();
+  showRgb();
 }
 
 function conversion(){
@@ -52,15 +52,34 @@ console.log("hsl(%f,%f%,%f%)", h, s, l); // just for testing
 }
 
 function showHex(){
-
-    let hexElement = document.querySelector(".getColor");
-    console.log(hexElement)
-    hexElement.oninput = function() { 
-    //console.log(hexCode)
-    console.log(document.querySelector('input[type=color]').value);
-    
+    //console.log(hexElement)
+    HTML.hexElement.oninput = function() { 
     let hexValue = document.querySelector('input[type=color]').value;
-    document.querySelector(".hexCode").textContent = `HEX code: ${hexValue}`
+    //console.log(hexCode)
+    console.log(document.querySelector('input[type=color]').value); 
+    document.querySelector(".hexCode").textContent = `HEX: ${hexValue}`;
     }
 }
 
+function showRgb(){
+ 
+  HTML.hexElement.oninput = function() { 
+    let hexValue = document.querySelector('input[type=color]').value;
+    console.log(hexValue)
+    //console.log(hexValue.length)
+    //console.log(hexValue.substring())
+    //console.log(hexValue.substring(5,2)) **** why always ",2"?
+    //RED
+    //console.log(parseInt(hexValue.substr(1, 2),16))
+    const r = parseInt(hexValue.substr(1, 2),16);
+    //GREEN
+    //console.log(parseInt(hexValue.substr(3, 2),16))
+    const g = parseInt(hexValue.substr(3, 2),16);
+    //BLUE
+    //console.log(parseInt(hexValue.substr(5, 2),16))
+    const b = parseInt(hexValue.substr(5, 2),16);
+    //showing both selectors because I want to display results of both HEX and RGB:
+    document.querySelector(".rgbCode").textContent = `RGB: ${r}, ${g}, ${b}`
+    document.querySelector(".hexCode").textContent = `HEX: ${hexValue}`;
+    }
+}
