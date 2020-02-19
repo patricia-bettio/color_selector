@@ -2,14 +2,16 @@ body {
     display: block;
 }
 
-#colorbox {
-    height: 50px;
-    width: 50px;
-    display: flex;
-    align-items: flex-end;;
+#colorBox {
+    height: 150px;
+    width: 150px;
+    display: inline-flex;
+    align-items: flex-end;
+    border: outset;
+    border-style: outset;
+    border-color: black;
 }
 
 .getcolor{
-    height: 50px;
-    width: 50px;
+
 }
