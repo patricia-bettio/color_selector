@@ -7,7 +7,7 @@ let HTML = {}
 function init(){
   HTML.hexElement = document.querySelector(".getColor");
   showHex();
- showRgb();
+  showRgb();
   //conversion();
   //showHsl();
   
@@ -48,11 +48,10 @@ function showRgb(){
     
     }
 
-  
 }
 
 function conversion(r,g,b){
-  console.log({r});
+  //console.log({r});
 
   let h, s, l;
 
@@ -93,11 +92,13 @@ function conversion(r,g,b){
   s *= 100;
   l *= 100;
   
-  console.log(h, s, l); 
-  
-  document.querySelector(".hslCode").textContent = `HSL: ${h}, ${s}, ${l}`;
+  console.log("hsl(%f,%f%,%f%)", h, s, l);
+
+  document.querySelector(".hslCode").textContent = `HSL: ${parseInt(h)}, ${parseInt(s)}%, ${parseInt(l)}%`;
  
+  console.log("hsl(%f,%f%,%f%)", h, s, l);
 }
+
 
 /* function showHsl(){
 
