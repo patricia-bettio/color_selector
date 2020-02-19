@@ -50,7 +50,7 @@ function showRgb(){
     document.querySelector(".rgbCode").textContent = `RGB: ${r}, ${g}, ${b}`;
     document.querySelector(".hexCode").textContent = `HEX: ${hexValue}`;
 
-  
+    document.querySelector(".baseColor").style.backgroundColor = this.value;
 
     let rgbObject = {
       r: r,
@@ -61,8 +61,8 @@ function showRgb(){
   
    rgbColor = rgbObject;
     console.log(rgbObject);
-    return rgbObject;
-   
+   // return rgbObject;
+   conversion(rgbObject)
     }
 }
 
@@ -127,7 +127,7 @@ let hslCodes = {
 //const hslCode = Object.create(hslCodes);  
 console.log(hslCodes)
 
-return hslCodes;
+//return hslCodes;
  
 }
 
