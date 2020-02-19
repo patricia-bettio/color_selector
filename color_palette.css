@@ -1,0 +1,15 @@
+body {
+    display: block;
+}
+
+#colorbox {
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: flex-end;;
+}
+
+.getcolor{
+    height: 50px;
+    width: 50px;
+}
