@@ -3,16 +3,24 @@
 window.addEventListener("DOMContentLoaded", init);
 
 let HTML = {}
+let rgbColor;
 
 function init(){
+ 
   HTML.hexElement = document.querySelector(".getColor");
-  showHex();
-  showRgb();
-  //conversion();
+  let rgbColors = showRgb();
+  
+  console.log(rgbColors);
+ 
+  //let hlsColor = conversion(rgbColors);
   //showHsl();
+   //showAnalogous();
 }
 
-function showHex(){
+
+
+
+/* function showHex(){
     //console.log(hexElement)
     HTML.hexElement.oninput = function() { 
     let hexValue = document.querySelector('input[type=color]').value;
@@ -20,11 +28,10 @@ function showHex(){
     console.log(document.querySelector('input[type=color]').value); 
     document.querySelector(".hexCode").textContent = `HEX: ${hexValue}`;
     }
-}
+} */
 
 function showRgb(){
- 
-  HTML.hexElement.oninput = function() { 
+  HTML.hexElement.oninput = function () { 
     let hexValue = document.querySelector('input[type=color]').value;
     console.log(hexValue)
     //console.log(hexValue.length)
@@ -43,14 +50,31 @@ function showRgb(){
     document.querySelector(".rgbCode").textContent = `RGB: ${r}, ${g}, ${b}`;
     document.querySelector(".hexCode").textContent = `HEX: ${hexValue}`;
 
-    conversion(r,g,b);
-    
-    }
+  
 
+    let rgbObject = {
+      r: r,
+      g: g,
+      b: b
+    }
+    
+  
+   rgbColor = rgbObject;
+    console.log(rgbObject);
+    return rgbObject;
+   
+    }
 }
 
-function conversion(r,g,b){
+function conversion(rgbObject){
   //console.log({r});
+
+    let r=rgbObject.r;
+    let g=rgbObject.g;
+    let b=rgbObject.b;
+ 
+
+
 
   let h, s, l;
 
@@ -63,19 +87,16 @@ function conversion(r,g,b){
   
   if( max === min ) {
     h = 0;
-    console.log({h});
   } else
   if (max === r) {
     h = 60 * (0 + (g - b) / (max - min) );
-    console.log({h});
   } else
   if (max === g) {
     h = 60 * (2 + (b - r) / (max - min) );
-    console.log({h});
   } else
   if (max === b) {
     h = 60 * (4 + (r - g) / (max - min) );
-    console.log({h});
+
   }
   
   if (h < 0) {h = h + 360; }
@@ -91,13 +112,29 @@ function conversion(r,g,b){
   s *= 100;
   l *= 100;
   
-  console.log("hsl(%f,%f%,%f%)", h, s, l);
+  //console.log("hsl(%f,%f%,%f%)", h, s, l);
 
   document.querySelector(".hslCode").textContent = `HSL: ${parseInt(h)}, ${parseInt(s)}%, ${parseInt(l)}%`;
  
-  console.log("hsl(%f,%f%,%f%)", h, s, l);
+  //console.log("hsl(%f,%f%,%f%)", h, s, l);
+
+let hslCodes = {
+  h: `${parseInt(h)}`,
+  s: `${parseInt(s)}%`,
+  l: `${parseInt(l)}%`,
 }
 
+//const hslCode = Object.create(hslCodes);  
+console.log(hslCodes)
+
+return hslCodes;
+ 
+}
+
+/* 
+function showAnalogous(hslCodes){
+  console.log(hslCodes);
+} */
 
 /* function showHsl(){
 
